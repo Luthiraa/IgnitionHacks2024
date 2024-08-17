@@ -2,3 +2,4 @@ backend/.venv/include/*
 backend/.venv/Lib/*
 backend/.venv/Scripts/*
 backend/.venv/pyvenv.cfg
+backend/.venv/keys/*
