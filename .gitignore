@@ -1,1 +1,4 @@
-backend/.venv/
+backend/.venv/include/*
+backend/.venv/Lib/*
+backend/.venv/Scripts/*
+backend/.venv/pyvenv.cfg
