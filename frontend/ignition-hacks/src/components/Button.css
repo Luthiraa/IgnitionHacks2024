@@ -1,20 +1,20 @@
 .button {
     padding: 15px 30px; 
     font-size: 18px; 
-    background-color: #B6D3E3;
-    color: #003044;
+    background-color: #3a6275;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
 }
 
 .button:hover {
-    background-color: #3a6275;
+    background-color: #B6D3E3;
+    color: #1d323b; 
 }
-
 .button:focus {
     outline: none;
 }
