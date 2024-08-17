@@ -25,7 +25,7 @@ def convert_to_latex(text):
 image_path = './images/test-image.png'
 latex_text = convert_image_to_latex(image_path)
 
-# write to a LaTeX file in the same directory with utf-8 encoding
+# write to a latex file in the same directory with utf-8 encoding
 with open('output.tex', 'w', encoding='utf-8') as f:
     for line in latex_text.split('\n'):
         f.write(line + '\n')
