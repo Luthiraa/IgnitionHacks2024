@@ -64,7 +64,6 @@ const Landing = () => {
         <div className="landing">
             <div id="animatedText" className="animated-text"></div>
             <div className='desc'>Your personalized study companion for any subject</div>
-            {/* <button onClick={() => {window.location.href = "/signup"}}>Sign Up</button> */}
             <Button targetPage="/signup">Sign Up</Button>
         </div>
     );

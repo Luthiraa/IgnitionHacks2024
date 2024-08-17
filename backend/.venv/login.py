@@ -1,8 +1,11 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
+from flask import Flask, request, render_template, redirect, url_for, flash, jsonify
+from flask_cors import CORS
 import sqlite3
 from hashlib import sha256
 import os
+
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 app.secret_key = os.urandom(24)
 
 # Connect to SQLite database (or create it if it doesn't exist)
@@ -46,35 +49,31 @@ def login_user(username, password):
 def home():
     return render_template('home.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/signup', methods=['POST'])
 def signup():
-    if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-        confirm_password = request.form['confirm_password']
+    data = request.json
+    username = data['username']
+    email = data['email']
+    password = data['password']
+    confirm_password = data['confirm_password']
 
-        if password == confirm_password:
-            if create_user(username, email, password):
-                flash('User created successfully.', 'success')
-                return redirect(url_for('login'))
-            else:
-                flash('Username or email already exists.', 'danger')
+    if password == confirm_password:
+        if create_user(username, email, password):
+            return jsonify({'success': True})
         else:
-            flash('Passwords do not match.', 'danger')
-    return render_template('signup.html')
+            return jsonify({'success': False, 'message': 'Username or email already exists.'})
+    else:
+        return jsonify({'success': False, 'message': 'Passwords do not match.'})
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        if login_user(username, password):
-            flash('Login successful.', 'success')
-            return redirect(url_for('home'))
-        else:
-            flash('Invalid username or password.', 'danger')
-    return render_template('login.html')
+    data = request.json
+    username = data['username']
+    password = data['password']
+    if login_user(username, password):
+        return jsonify({'success': True})
+    else:
+        return jsonify({'success': False, 'message': 'Invalid username or password.'})
 
 if __name__ == '__main__':
     app.run(debug=True)
