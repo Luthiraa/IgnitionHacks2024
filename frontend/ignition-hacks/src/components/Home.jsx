@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/home.css"; // Ensure this path is correct
+import "./Home.css"; // Ensure this path is correct
 import { FaPaperclip } from "react-icons/fa"; // For paperclip icon
 
 const Home = () => {
@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <div className="app">
       <header className="header">
-        <h1>Chat Application</h1>
+        <h1>Ninja Brain</h1>
         <select value={selectedTerm} onChange={handleTermChange} className="dropdown">
           <option value="flashcards">Flashcards</option>
           <option value="long-answer">Long Answer</option>

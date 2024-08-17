@@ -1,11 +1,3 @@
-/* Full screen layout */
-.app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #DAEBF4; /* Light background */
-  color: #003044; /* Dark text color */
-}
 
 .header {
   background-color: #004154; /* Dark header */
