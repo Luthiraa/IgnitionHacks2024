@@ -117,8 +117,8 @@ const Landing = () => {
 
     return (
         <div className="landing-page">
+        <div className='desc'>TRANSFORM YOUR NOTES INTO QUESTIONS INSTANTLY</div>
         <div id="animatedText" className="animated-text"></div>
-        <div className='desc'>Transform Your Notes Into Questions Instantly</div>
         <Button targetPage="/signup">Sign Up</Button>
     </div>
     );

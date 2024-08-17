@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta:700');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 .landing {
     overflow: hidden;
@@ -46,9 +47,10 @@ button {
 .desc {
   text-align: center;
   color: #DAEBF4; 
-  margin-bottom: 40px; /* Add space below the description */
-  font-size: 2rem; /* Adjust the font size as needed */
+  margin-bottom: 10px; /* Add space below the description */
+  font-size: 1.8rem; /* Adjust the font size as needed */
   font-family: 'Ubuntu', sans-serif; /* Change the font family */
+  letter-spacing: 0.2em;
 }
 
 .letter {
