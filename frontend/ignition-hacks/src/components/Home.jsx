@@ -150,13 +150,6 @@ const Home = () => {
           </div>
           <div
             className="option"
-            data-value="Flashcards"
-            onClick={() => handleOptionClick("Flashcards")}
-          >
-            Flashcards
-          </div>
-          <div
-            className="option"
             data-value="Long Answer"
             onClick={() => handleOptionClick("Long Answer")}
           >

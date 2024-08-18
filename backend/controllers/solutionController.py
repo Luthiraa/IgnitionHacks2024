@@ -1,5 +1,5 @@
-from services.wolframService import call_wolfram_api
+from services.wolframService import generate_problem_and_answer
 
 
 def generate_solution(question: str) -> str:
-    return call_wolfram_api(question)
+    return generate_problem_and_answer(question)
