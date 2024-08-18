@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,500,300italic,500italic,700italic,900,300');
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  color: white;
+}
