@@ -200,7 +200,7 @@ const Home = () => {
             />
           )}
           <button onClick={handleSendMessage} className="sendButton">
-            Send
+            SEND
           </button>
         </div>
       </div>

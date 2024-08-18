@@ -3,7 +3,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background-color: #2e2e2e; /* Set background color to dark gray */
   overflow: hidden;
 }
 
@@ -157,7 +157,7 @@ html, body {
 }
 
 .drop.visible .option:hover {
-  background-color: #5aafee;
+  background-color: #a9b5be;
 }
 
 .drop.opacity .option {
@@ -169,7 +169,7 @@ html, body {
 }
 
 .drop.withBG .option:hover {
-  background-color: #5aafee;
+  background-color: #ffffff;
 }
 
 .drop:after,
@@ -212,7 +212,7 @@ html, body {
   align-items: center;
   width: 100%;
   max-width: 800px;
-  background-color: #000000;
+  background-color: #2e2e2e;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -254,12 +254,18 @@ html, body {
 
 .sendButton {
   padding: 10px 20px;
-  background-color: #003044; /* Set the button color to #003044 */
-  color: #ffffff;
+  background-color: #ffffff; /* Set the button color to #ffffff */
+  color: #000000;
   font-family: 'Ubuntu', sans-serif; /* Apply Ubuntu font */
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.sendButton:hover {
+  background-color: #000000; /* Change background color to black */
+  color: #ffffff; /* Change text color to white */
 }
 
 .chatBox {
