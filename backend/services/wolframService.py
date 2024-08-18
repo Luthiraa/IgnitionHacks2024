@@ -1,50 +1,58 @@
 import requests
 
-WOLFRAM_API_URL = "http://api.wolframalpha.com/v2/query"
-WOLFRAM_APP_ID = "your-app-id"  # Replace with your actual Wolfram Alpha App ID
+# Wolfram Alpha Conversational API details
+APP_ID = "VER5TY-EL787WWWYR"  # Replace with your actual Wolfram Alpha App ID
+CONVERSATION_API_URL = "https://api.wolframalpha.com/v1/conversation.jsp"
 
 
-def generate_question_from_notes(notes):
+def ask_wolfram_conversational(input_query, conversation_state=None):
     params = {
-        "input": notes,
-        "appid": WOLFRAM_APP_ID,
-        "output": "json"
+        "appid": APP_ID,
+        "i": input_query
     }
-    response = requests.get(WOLFRAM_API_URL, params=params)
+    if conversation_state:
+        params["conversationid"] = conversation_state
+
+    response = requests.get(CONVERSATION_API_URL, params=params)
 
     if response.status_code == 200:
         data = response.json()
-        try:
-            pods = data.get('queryresult', {}).get('pods', [])
-            if pods:
-                for pod in pods:
-                    if pod.get('title') == "Input interpretation":
-                        return pod['subpods'][0]['plaintext']
-            return "No direct question generated."
-        except KeyError:
-            return "Error parsing Wolfram Alpha response."
+        return data
     else:
-        return f"Failed to contact Wolfram Alpha API: {response.status_code}"
+        return {"error": f"Failed to contact Wolfram Alpha API: {response.status_code}"}
+
+# Function to generate a math problem and then get the answer
 
 
-def call_wolfram_api(question: str) -> str:
-    params = {
-        "input": question,
-        "appid": WOLFRAM_APP_ID,
-        "output": "json"
-    }
-    response = requests.get(WOLFRAM_API_URL, params=params)
+def generate_problem_and_answer(latex_input):
+    # Generate a math problem based on the LaTeX input
+    problem_query = f"Generate a math problem using the expression {latex_input}"
+    problem_response = ask_wolfram_conversational(problem_query)
 
-    if response.status_code == 200:
-        data = response.json()
-        try:
-            pods = data.get('queryresult', {}).get('pods', [])
-            if pods:
-                for pod in pods:
-                    if pod.get('title') == "Result":
-                        return pod['subpods'][0]['plaintext']
-            return "No direct answer found."
-        except KeyError:
-            return "Error parsing Wolfram Alpha response."
+    if "error" in problem_response:
+        print(problem_response["error"])
+        return
+
+    generated_problem = problem_response.get("result")
+    conversation_state = problem_response.get("conversationID")
+
+    if not generated_problem or not conversation_state:
+        print("No problem generated or no conversation ID returned.")
+        return
+
+    print("Generated Problem:", generated_problem)
+
+    # Now ask Wolfram Alpha to solve the generated problem
+    answer_response = ask_wolfram_conversational(
+        "What is the solution?", conversation_state)
+
+    if "error" in answer_response:
+        print(answer_response["error"])
+        return
+
+    generated_answer = answer_response.get("result")
+
+    if generated_answer:
+        print("Generated Answer:", generated_answer)
     else:
-        return f"Failed to contact Wolfram Alpha API: {response.status_code}"
+        print("No direct answer found.")
