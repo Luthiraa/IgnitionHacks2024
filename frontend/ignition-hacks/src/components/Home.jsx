@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Home.css"; // Ensure this path is correct
-import { FaPaperclip } from "react-icons/fa"; // For paperclip icon
+import "./Home.css"; 
+import { FaPaperclip } from "react-icons/fa"; 
 
 const Home = () => {
   const [messages, setMessages] = useState([]);
