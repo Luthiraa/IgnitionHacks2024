@@ -1,0 +1,41 @@
+.button {
+    padding: 15px 30px; 
+    font-size: 18px; 
+    background-color: #3a6275;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
+}
+
+.button:hover {
+    background-color: #B6D3E3;
+    color: #1d323b; 
+}
+.button:focus {
+    outline: none;
+}
+
+.button.wipe::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #B6D3E3;
+    z-index: 10;
+    animation: wipe 1s forwards;
+}
+
+@keyframes wipe {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
