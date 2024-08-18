@@ -15,7 +15,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/output" element={<Output/>} /> 
+            <Route path="/output" element={<Output />} /> 
           </Routes>
         </Router>
       </header>

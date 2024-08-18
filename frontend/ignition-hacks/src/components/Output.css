@@ -1,13 +1,222 @@
-.output {
-  overflow-x: hidden;
+/* Star Animation Styles */
+#stars, #stars2, #stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0; /* Ensure stars are in the background */
 }
 
-.container {
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 0px 0px 2px 1px #FFF, 
+              400px 200px 2px 1px #FFF, 
+              800px 400px 2px 1px #FFF, 
+              1200px 600px 2px 1px #FFF, 
+              1600px 800px 2px 1px #FFF,
+              2000px 1000px 2px 1px #FFF,
+              -400px 200px 2px 1px #FFF, 
+              -800px 400px 2px 1px #FFF, 
+              -1200px 600px 2px 1px #FFF, 
+              -1600px 800px 2px 1px #FFF,
+              -2000px 1000px 2px 1px #FFF;
+  animation: animStar 30s linear infinite;
+}
+
+#stars:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: inherit;
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 0px 0px 3px 2px #FFF, 
+              350px 150px 3px 2px #FFF, 
+              700px 300px 3px 2px #FFF, 
+              1050px 450px 3px 2px #FFF, 
+              1400px 600px 3px 2px #FFF,
+              1750px 750px 3px 2px #FFF,
+              -350px 150px 3px 2px #FFF, 
+              -700px 300px 3px 2px #FFF, 
+              -1050px 450px 3px 2px #FFF, 
+              -1400px 600px 3px 2px #FFF,
+              -1750px 750px 3px 2px #FFF;
+  animation: animStar 60s linear infinite;
+}
+
+#stars2:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: inherit;
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 0px 0px 4px 3px #FFF, 
+              300px 100px 4px 3px #FFF, 
+              600px 200px 4px 3px #FFF, 
+              900px 300px 4px 3px #FFF, 
+              1200px 400px 4px 3px #FFF,
+              1500px 500px 4px 3px #FFF,
+              -300px 100px 4px 3px #FFF, 
+              -600px 200px 4px 3px #FFF, 
+              -900px 300px 4px 3px #FFF, 
+              -1200px 400px 4px 3px #FFF,
+              -1500px 500px 4px 3px #FFF;
+  animation: animStar 90s linear infinite;
+}
+
+#stars3:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: inherit;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+/* Existing Styles */
+
+/* Flip Card Styles */
+.flip-card {
+  width: 700px; /* Updated width */
+  height: 400px; /* Updated height */
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1; /* Ensure cards appear above stars */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(6, 8, 45);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 24px;
+  color: black; /* Black font color */
+}
+
+.flip-card-front {
+  background-color: #f0f0f0;
+}
+
+.flip-card-back {
+  background-color: #B6D3E3;
+  transform: rotateY(180deg);
+}
+
+/* Carousel Styles */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px; /* Adjusted to fit larger cards */
+  margin: 0 auto;
+  position: relative;
+  height: 500px; /* Adjusted to fit larger cards */
+  z-index: 1; /* Ensure carousel appears above stars */
+}
+
+.carousel-wrapper {
+  display: flex;
   overflow: hidden;
+  width: 700px; /* Match the width of the flip card */
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  display: none;
+}
+
+.carousel-slide.active {
+  display: flex; /* Show only the active slide */
+  justify-content: center;
+}
+
+/* Arrows */
+.carousel-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  position: fixed; /* Fixed positioning for edges of the screen */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000; /* Ensure the buttons are on top of other content */
+}
+
+.carousel-button.prev {
+  left: 20px; /* Position the left button at the left edge of the screen */
+}
+
+.carousel-button.next {
+  right: 20px; /* Position the right button at the right edge of the screen */
+}
+
+.carousel-button:hover {
+  background-color: #555;
+}
+
+/* Container Styles */
+.output-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #181b1c;
+  position: relative;
+  padding: 40px 0; /* Padding to avoid touching top and bottom */
+}
+
+body {
+  margin: 0;
+  background-color: #333; /* Ensure the black background */
 }
