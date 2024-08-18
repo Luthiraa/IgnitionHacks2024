@@ -24,8 +24,6 @@ def convert_to_latex(text):
     latex_text = text.replace('\n', ' \\\\ ')
     return latex_text
 
-
-"""
 image_path = '../../tests/images/test-image.png'
 latex_text = convert_image_to_latex(image_path)
 
@@ -33,4 +31,4 @@ latex_text = convert_image_to_latex(image_path)
 with open('../../tests/output/output.tex', 'w', encoding='utf-8') as f:
     for line in latex_text.split('\n'):
         f.write(line + '\n')
-"""
+
