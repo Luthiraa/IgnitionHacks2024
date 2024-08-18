@@ -44,8 +44,7 @@ const Home = () => {
     }
 
     function loopAnimation() {
-      resetLetters();
-      setTimeout(animateLetters, 500);
+      setTimeout(animateLetters, 0);
     }
 
     animateLetters();
