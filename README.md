@@ -35,6 +35,7 @@ Dive into your new study materials and get ready to ace your exams!
 We combined a react front-end with a flask back-end, setting up multiple API endpoints to ensure seamless user interaction. The UI was designed to attract users and provide a certain calm aesthetic, which is fitting of a study environment. We called Gemini and Wolfram API to provide accurate latex translations, questions, and answers.
 
 Frontend: React
+
 Backend: Flask, Python, Google Cloud Vision, Wolfram Alpha API, jquery
 
 ## 🧠 Challenges We Overcame
