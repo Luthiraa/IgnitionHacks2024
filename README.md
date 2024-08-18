@@ -34,6 +34,9 @@ Dive into your new study materials and get ready to ace your exams!
 
 We combined a react front-end with a flask back-end, setting up multiple API endpoints to ensure seamless user interaction. The UI was designed to attract users and provide a certain calm aesthetic, which is fitting of a study environment. We called Gemini and Wolfram API to provide accurate latex translations, questions, and answers.
 
+Frontend: React
+Backend: Flask, Python, Google Cloud Vision, Wolfram Alpha API, jquery
+
 ## 🧠 Challenges We Overcame
 
 As this was our first hackathon as a team, we struggled a lot in source control. Our branches were messy and sometimes we encountered git merge conflicts, or commit problems. At times, we committed our own venv folder on accident, which erased the existing venv folders and caused issues. However, we pushed through and made sure everyone was on the same page before continuing making changes, because we know that it is key to a successful hackathon.
