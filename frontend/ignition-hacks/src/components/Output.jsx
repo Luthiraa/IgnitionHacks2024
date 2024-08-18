@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Output.css'; // Updated to 'Output.css'
+import './Output.css';
 
 const FlipCard = ({ frontContent, backContent }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -12,7 +12,7 @@ const FlipCard = ({ frontContent, backContent }) => {
     <div className={`flip-card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
       <div className="flip-card-inner">
         <div className="flip-card-front">
-          <h2>{frontContent}</h2>
+          <h2 dangerouslySetInnerHTML={{ __html: frontContent }} />
         </div>
         <div className="flip-card-back">
           <h2>{backContent}</h2>
@@ -61,16 +61,48 @@ const Carousel = ({ cards }) => {
 
 const Output = () => {
   const cards = [
-    { frontContent: 'Front 1', backContent: 'Back 1' },
-    { frontContent: 'Front 2', backContent: 'Back 2' },
-    { frontContent: 'Front 3', backContent: 'Back 3' },
-    { frontContent: 'Front 4', backContent: 'Back 4' },
+    { frontContent: "Question: For the polynomial P(x) = -6x^4 + 2x^2 - 1, which of the following statements is true? <br /> A) The function has an odd degree and shows point symmetry at the origin. <br /> B) The function has a line of symmetry along the y-axis. <br /> C) The possible turning points for the function are even. <br /> D) The function's end behavior is from Q1 to Q2. ", backContent: "Answer: B) The function has a line of symmetry along the y-axis." },
+    {
+      frontContent: `Which of the following best describes the end behavior of the function P(x) = -6x^4 + 2x^2 - 1?<br />
+        A) Rises to the left and falls to the right<br />
+        B) Falls to the left and rises to the right<br />
+        C) Falls to the left and falls to the right<br />
+        D) Rises to the left and rises to the right`,
+      backContent: "C) Falls to the left and falls to the right"
+    },
+    {
+      frontContent: `Given the polynomial function P(x) = -6x^4 + 2x^2 - 1, how many possible x-intercepts can there be?<br />
+        A) 1<br />
+        B) 2<br />
+        C) 3<br />
+        D) 4`,
+      backContent: "D) 4"
+    },
+    {
+      frontContent: `For the polynomial function P(x) = -6x^4 + 2x^2 - 1, what is the degree of the polynomial and what does it signify?<br />
+        A) Degree 4, indicating 4 turning points<br />
+        B) Degree 2, indicating 2 x-intercepts<br />
+        C) Degree 3, indicating 3 turning points<br />
+        D) Degree 4, indicating even symmetry`,
+      backContent: "D) Degree 4, indicating even symmetry"
+    },
   ];
 
   return (
     <div className="output-container">
       <div id="stars"></div>
       <div id="stars2"></div>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <div id="stars3"></div>
+      <div id="stars3"></div>
+      <div id="stars3"></div>
+      <div id="stars3"></div>
       <div id="stars3"></div>
       <Carousel cards={cards} />
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaPaperclip } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
   const [selectedTerm, setSelectedTerm] = useState("placeholder");
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [clicked, setClicked] = useState(false); // State to manage click animation
+  const navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => {
     const text = "NINJA BRAIN";
@@ -126,6 +128,9 @@ const Home = () => {
     setMessages((prevMessages) => [...prevMessages, newMessage]);
     setInput("");
     setImage(null);
+
+    // Navigate to the output page
+    navigate("/output");
   };
 
   return (
